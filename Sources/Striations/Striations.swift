@@ -15,13 +15,13 @@ public struct Striations: View {
     private var spacing: CGFloat
     private var rotationDegrees: Double
 
-    init(color: Color = Color.black.opacity(0.5),
-         stripWidth: CGFloat = 16,
+    public init(color: Color = Color.black.opacity(0.5),
+         width: CGFloat = 16,
          spacing: CGFloat = 16,
          rotationDegrees: Double = 45) {
 
         self.color = color
-        self.width = stripWidth
+        self.width = width
         self.spacing = spacing
         self.rotationDegrees = rotationDegrees
     }
@@ -57,13 +57,13 @@ public struct Striations: View {
 struct StripesView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            Striations(color: .black, stripWidth: 8, spacing: 8, rotationDegrees: 45)
+            Striations(color: .black, width: 8, spacing: 8, rotationDegrees: 45)
                 .background(Color.red)
                 .frame(width: 200, height: 200)
-            Striations(color: .black, stripWidth: 16, spacing: 16, rotationDegrees: 30)
+            Striations(color: .black, width: 16, spacing: 16, rotationDegrees: 30)
                 .background(Color.red)
                 .frame(width: 50, height: 700)
-            Striations(color: .black, stripWidth: 16, spacing: 16, rotationDegrees: 45)
+            Striations(color: .black, width: 16, spacing: 16, rotationDegrees: 45)
                 .background(Color.red)
                 .frame(width: 250, height: 250)
         }
