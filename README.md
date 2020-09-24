@@ -12,6 +12,10 @@
 ## Description
 **Striations** is a library for building beautiful background by stripes. Allows you to set the space between the stripes, color and degree of inclination.
 
+## Example previews
+![Striations SwiftUI](Screenshots/iPhone11_1.png)
+![Striations SwiftUI](Screenshots/iPhone11_2.png)
+![Striations SwiftUI](Screenshots/iPhone11_3.png)
 
 ## Installation
 
@@ -35,7 +39,7 @@ struct ContentView: View {
             Striations(color: Color.pink.opacity(0.2), width: 16, spacing: 16, rotationDegrees: -45)
             Text("Hello, world!")
                 .font(.system(size: 32, weight: .bold))
-        }.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+        }.edgesIgnoringSafeArea(.all)
     }
 }
 ```
