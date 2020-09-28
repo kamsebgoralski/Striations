@@ -10,15 +10,15 @@ import SwiftUI
 
 public struct Striations: View {
 
-    private var color: Color
-    private var width: CGFloat
-    private var spacing: CGFloat
-    private var rotationDegrees: Double
+    let color: Color
+    let width: CGFloat
+    let spacing: CGFloat
+    let rotationDegrees: Double
 
     public init(color: Color = Color.black.opacity(0.5),
-         width: CGFloat = 16,
-         spacing: CGFloat = 16,
-         rotationDegrees: Double = 45) {
+                width: CGFloat = 16,
+                spacing: CGFloat = 16,
+                rotationDegrees: Double = 45) {
 
         self.color = color
         self.width = width
@@ -29,28 +29,15 @@ public struct Striations: View {
     public var body: some View {
 
         GeometryReader { geometryReader in
-            self.createStriations(geometryReader)
+            StriationsView(striations: self, size: geometryReader.size)
                 .position(x: geometryReader.size.width / 2, y: geometryReader.size.height / 2)
-
         }
         .clipped()
         .drawingGroup()
     }
 
-    private func createStriations(_ geometry: GeometryProxy) -> some View {
-
-        let longSide = max(geometry.size.width, geometry.size.height)
-        let itemWidth = width + spacing
-        let itemHeight = longSide * sqrt(2)
-        let items = Int(itemHeight / itemWidth)
-
-        return HStack(alignment: .center, spacing: spacing) {
-            ForEach(0..<items, id: \.self) { _ in
-                self.color
-                    .frame(width: self.width, height: itemHeight)
-            }
-        }
-        .rotationEffect(Angle(degrees: rotationDegrees))
+    var itemWidth: CGFloat {
+        return width + spacing
     }
 }
 
